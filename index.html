@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>マルバツゲーム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        td.cell {
+            width: 100px;
+            height: 100px;
+            font-size: 60pt;
+            text-align: center;
+        }
+
+        header {
+            font-size: 36pt;
+            text-align: center;
+            border-bottom: 10px;
+            background-color: lightblue;
+        }
+
+        main {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        p {
+            font-size: 24pt;
+        }
+    </style>
+    <script>
+        let count = 0;
+        function updateTurn() {
+            const turnElem = document.getElementById("turn");
+            if (count % 2 === 0) {
+                turnElem.textContent = "〇の番";
+            } else {
+                turnElem.textContent = "×の番";
+            }
+        }
+        function init() {
+            let b = document.getElementById("board");
+            for (let i = 0; i < 3; i++) {
+                let tr = document.createElement("tr");
+                for (let j = 0; j < 3; j++) {
+                    let td = document.createElement("td");
+                    td.className = "cell";
+                    td.id = "cell" + i + j;
+                    td.onclick = clicked;
+                    tr.appendChild(td);
+                }
+                b.appendChild(tr);
+            }
+            updateTurn();
+        }
+        function clicked(e) {
+            if (e.target.textContent !== "") return;
+            if (count % 2 === 0) {
+                e.target.textContent = "〇";
+            } else {
+                e.target.textContent = "×";
+            }
+            count++;
+            updateTurn();
+        }
+    </script>
+</head>
+<header>マルバツゲーム</header>
+
+<body onload="init()">
+    <main>
+        <table id="board" border="1"></table>
+        <p id="turn"></p>
+    </main>
+</body>
+
+</html>
