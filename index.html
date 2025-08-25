@@ -43,8 +43,10 @@
             const turnElem = document.getElementById("turn");
             if (count % 2 === 0) {
                 turnElem.textContent = "〇の番";
+                turnElem.style.color = "red";
             } else {
                 turnElem.textContent = "×の番";
+                turnElem.style.color = "blue";
             }
         }
         function init() {
@@ -66,8 +68,10 @@
             if (e.target.textContent !== "") return;
             if (count % 2 === 0) {
                 e.target.textContent = "〇";
+                e.target.style.color = "red";
             } else {
                 e.target.textContent = "×";
+                e.target.style.color = "blue";
             }
             count++;
             updateTurn();
