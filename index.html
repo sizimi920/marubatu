@@ -1,21 +1,59 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>マルバツゲーム</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body onload="init()">
-    <header>マルバツゲーム</header>
-    <button id="resetButton" type="button">リセット</button>
-    <main>
-        <table id="board" border="1"></table>
-        <p id="turn"></p>
-    </main>
-</body>
+  <body onload="init()">
+    <div class="background-animation"></div>
+    <div class="container">
+      <header>
+        <h1 class="game-title">マルバツゲーム</h1>
+        <div class="title-decoration"></div>
+      </header>
 
+      <div class="game-stats">
+        <div class="stat-card">
+          <span class="stat-label">ターン</span>
+          <span id="turn-count" class="stat-value">1</span>
+        </div>
+      </div>
+
+      <main class="game-board">
+        <div class="board-container">
+          <table id="board"></table>
+          <div class="board-glow"></div>
+        </div>
+
+        <div class="game-info">
+          <p id="turn" class="turn-indicator"></p>
+          <button id="resetButton" type="button" class="reset-btn">
+            <span>🔄</span>
+            リセット
+          </button>
+        </div>
+      </main>
+
+      <div id="winner-modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="winner-animation">
+            <div class="trophy">🏆</div>
+            <h2 id="winner-text"></h2>
+            <div class="celebration-particles"></div>
+          </div>
+          <button id="new-game-btn" class="new-game-btn">新しいゲーム</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="particles-container"></div>
+  </body>
 </html>
